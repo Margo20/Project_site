@@ -1,0 +1,21 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}
+    {% if repair %}{{ repair.name }}{% else %}Пример выполненных нами работ{% endif %}
+{% endblock %}
+{% block content %}
+    <div class="product-detail text-center">
+        <img src="{% if ourwork.image %}{{ ourwork.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+        <h1>{{ ourwork.name }}</h1>
+        <h2 ><a href="{{ ourwork.get_absolute_url }}">{{ ourwork.repair}}</a></h2>
+        <p class="price">${{ ourwork.price }}</p>
+        {{ ourwork.description|linebreaks }}
+    </div>
+    <p class="price text-center">${{ ourwork.price }}</p>
+    <form action="{% url 'cart:cart_add' ourwork.pk %}" method="POST" class="text-center">
+        {{ cart_product_form }}
+        {% csrf_token %}
+        <input type="submit" value="Добавить в корзину">
+    </form>
+{% endblock %}
+

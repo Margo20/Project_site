@@ -1,0 +1,31 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}
+    Наши контакты
+{% endblock %}
+{% block content %}
+<section class="wrapper">
+    <div class="contact_page">
+        <div class="wrapper_contacts">
+            <div class="text">
+                <h1>ЗАДАЙТЕ ИНТЕРЕСУЮЩИЙ ВАС ВОПРОС!</h1><br>
+                <h3>И мы ответим Вам в ближайшее время</h3>
+            </div>
+         <div class="wrapper_contacts_form">
+             <form action="{% url 'rem:contacts' %}" method="post" enctype="multipart/form-data" class="form_contacts">
+                 {% csrf_token %}
+                 <ul class="ul-contact"><li class="li-contact">
+                 <table>
+                        <tr >
+                            <td> <p class="p_contact">{{form.label}}</p> {{form}}</td>
+
+                        </tr>
+                 </table>
+</li></ul>
+                 <input type="submit" value="Отправить" class="btn_contacts">
+             </form>
+         </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

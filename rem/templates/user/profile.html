@@ -1,0 +1,188 @@
+{% extends 'pages/base.html' %}
+{% load static%}
+
+{% block title %}
+     Аккаунт
+{% endblock%}
+
+{%block content%}
+<a href="{% url 'rem:logout' %}" class="log_reg_inner">Выход</a>
+<a href="{% url 'rem:change_password' %}" class="log_reg_inner">Сменить пароль</a>
+<div class="message_error">{{error}}</div>
+<div class="wrapper_pr">
+    <h3 class="prof_h">Косметический ремонт, жду звонка</h3>
+    {% for data in dataOrder %}
+    <div class="cost_pr">
+         <table class="table_profile">
+             <tr>
+                 <th class="">
+                     <h5>Имя</h5>
+                 </th>
+                 <th class="">
+                     <h5>Телефон</h5>
+                 </th>
+                 <th class="">
+                     <h5>Описание</h5>
+                 </th>
+                 <th class="">
+             <tr>
+                 <td class="td">{{ data.name}}</td>
+                 <td class="td">{{ data.phone}}</td>
+                 <td class="td">{{ data.description}}</td>
+                 <td class="td">{{ data.published}}</td>
+             </tr>
+         </table>
+    </div>
+{% endfor %}
+</div>
+
+<div class="wrapper_pr">
+    <h3 class="prof_h">Капитальный ремонт, жду звонка</h3>
+    {% for data in dataKapRem %}
+    <div class="cost_pr">
+         <table class="table_profile">
+             <tr>
+                 <th class="">
+                     <h5>Имя</h5>
+                 </th>
+                 <th class="">
+                     <h5>Телефон</h5>
+                 </th>
+                 <th class="">
+                     <h5>Описание</h5>
+                 </th>
+                 <th class="">
+                         <h5>Дата и время</h5>
+                 </th>
+             </tr>
+             <tr>
+                 <td class="td">{{ data.name}}</td>
+                 <td class="td">{{ data.phone}}</td>
+                 <td class="td">{{ data.description}}</td>
+                 <td class="td">{{ data.published}}</td>
+             </tr>
+         </table>
+    </div>
+{% endfor %}
+</div>
+
+<div class="wrapper_pr">
+    <h3 class="prof_h">Евроремонт, жду звонка</h3>
+    {% for data in dataEuroRem %}
+    <div class="cost_pr">
+         <table class="table_profile">
+             <tr>
+                 <th class="">
+                     <h5>Имя</h5>
+                 </th>
+                 <th class="">
+                     <h5>Телефон</h5>
+                 </th>
+                 <th class="">
+                     <h5>Описание</h5>
+                 </th>
+                 <th class="">
+                         <h5>Дата и время</h5>
+                 </th>
+             </tr>
+             <tr>
+                 <td class="td">{{ data.name}}</td>
+                 <td class="td">{{ data.phone}}</td>
+                 <td class="td">{{ data.description}}</td>
+                 <td class="td">{{ data.published}}</td>
+
+             </tr>
+         </table>
+    </div>
+{% endfor %}
+</div>
+
+<div class="wrapper_pr">
+    <h3 class="prof_h">Контакты форма</h3>
+    <div class="contacts_pr">
+    {% for data in dataDBUser %}
+         <table class="table_profile">
+             <tr>
+                 <th class="">
+                     <h5>Имя</h5>
+                 </th>
+                 <th class="">
+                     <h5>Телефон</h5>
+                 </th>
+                 <th class="">
+                     <h5>Почта</h5>
+                 </th>
+                 <th class="">
+                     <h5>Описание</h5>
+                 </th>
+                 <th class="">
+                         <h5>Дата и время</h5>
+                 </th>
+             </tr>
+             <tr>
+                 <td class="td">{{ data.name}}</td>
+                 <td class="td">{{ data.phone}}</td>
+                 <td class="td">{{ data.email}}</td>
+                 <td class="td">{{ data.description}}</td>
+                  <td class="td">{{ data.published}}</td>
+             </tr>
+         </table>
+    {% endfor %}
+    </div>
+</div>
+
+<div class="wrapper_pr">
+    <h3 class="prof_h">Отправленные заявки</h3>
+    <div class="foot_pr">
+        <div class="wrap_foot">
+        {% for data in dataFooter %}
+             <table class="table_profile">
+                 <tr>
+                     <th class="">
+                         <h5>Имя</h5>
+                     </th>
+                     <th class="">
+                         <h5>Телефон</h5>
+                     </th>
+                     <th class="">
+                         <h5>Почта</h5>
+                     </th>
+                     <th class="">
+                         <h5>Дата и время</h5>
+                     </th>
+                 </tr>
+                 <tr>
+                     <td class="td">{{ data.name}}</td>
+                     <td class="td">{{ data.phone}}</td>
+                     <td class="td">{{ data.email}}</td>
+                      <td class="td">{{ data.published}}</td>
+                 </tr>
+             </table>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="wrapper_discount">
+    <div class="wrapper_pr">
+        <h3 class="discount_pr">Запрос на скидку</h3>
+        <div class="discount_pr">
+            {% for tel in dataDiscount %}
+             <table class="table_profile">
+                 <tr>
+                     <th class="">
+                         <h5>Телефон</h5>
+                     </th>
+                     <th class="">
+                         <h5>Дата и время</h5>
+                     </th>
+                 </tr>
+                <tr>
+                   <td class="td">{{ tel.phone}}</td>
+                    <td class="td">{{ tel.published}}</td>
+                </tr>
+             </table>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

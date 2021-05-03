@@ -1,0 +1,354 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}
+    Наши цены
+{% endblock %}
+{% block content %}
+ <div class="table_price" >
+     <table class="table_row">
+         <tr>
+             <th class="table_column">
+                 <strong>ВИД РАБОТ</strong>
+             </th>
+             <th class="table_column">
+                 <strong>Ед.изм</strong>
+             </th>
+             <th class="table_column">
+                 <strong>ЦЕНА, у.е.</strong>
+             </th>
+             <th class="table_column">
+                 <strong>ДОП.ИНФОРМАЦИЯ</strong>
+             </th>
+         </tr>
+         <tr>
+             <td class="td" colspan="4">
+                 <span style="text-decoration: underline;" >
+                     <strong>Демонтажные работы</strong>
+                 </span>
+             </td>
+         </tr>
+         <tr>
+             <td class="td">
+                 Демонтаж деревянного дощатого пола,
+                 <br>
+                 демонтаж стяжки до 5см, демонтаж плитка+стяжка до 5 см, демонтаж
+                 <br>
+                 дощатого пола с уложенным поверху покрытием из ламината или паркета
+             </td>
+             <td class="td">М2</td>
+             <td class="td">3,5</td>
+             <td class="td"></td>
+         </tr>
+          <tr>
+             <td class="td">Демонтаж штукатурки</td>
+             <td class="td">М2</td>
+             <td class="td">4</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж перегородок из кирпича пустотелого</td>
+             <td class="td">М2</td>
+             <td class="td">4</td>
+             <td class="td">При объемах от 15м2</td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж перегородок из кирпича полнотелого</td>
+             <td class="td">М2</td>
+             <td class="td">5</td>
+             <td class="td">При объемах от 15м2</td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж перегородок из газосиликата, гипсолита, гипсовых блоков</td>
+             <td class="td">М2</td>
+             <td class="td">3</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж перегородок из ж/б до 5см</td>
+             <td class="td">М2</td>
+             <td class="td">17</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж перегородок из ж/б до 8см</td>
+             <td class="td">М2</td>
+             <td class="td">27</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж стен ж/б толщина до 12см</td>
+             <td class="td">М2</td>
+             <td class="td">35</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж стен ж/б толщина до 25см</td>
+             <td class="td">М2</td>
+             <td class="td"></td>
+             <td class="td">Договорная цена</td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж плитки настенной</td>
+             <td class="td">М2</td>
+             <td class="td">3</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Демонтаж линолеума, ковролина</td>
+             <td class="td"></td>
+             <td class="td">1</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td" colspan="4">
+                 <span style="text-decoration: underline;" >
+                     <strong>Укладка плитки</strong>
+                 </span>
+             </td>
+         </tr>
+          <tr>
+             <td class="td">
+                 Укладка плитки больших площадей, объем не менее 200м2,
+                 <br>
+                 при площади одной поверхности не менее 15м2
+                 <br>
+                 (например, укладка плитки в офисах)
+             </td>
+             <td class="td">М2</td>
+             <td class="td">5</td>
+             <td class="td">Наличный и безналичный расчет</td>
+         </tr>
+         <tr>
+             <td class="td">
+                 Укладка плитки больших площадей, объем не менее 500м2,
+                 <br>
+                 при площади одной поверхности не менее 100м2
+                 <br>
+                 (например, укладка плитки в магазинах, павлиьонах)
+             </td>
+             <td class="td">М2</td>
+             <td class="td">4</td>
+             <td class="td">При условии ровной качественной стяжки,
+                 <br>
+                 размер плитки не менее 300Х300 и не более 700Х700мм</td>
+         </tr>
+         <tr>
+             <td class="td" colspan="4">
+                 Укладка плитки в квартирах
+                 <br>
+                 (в стоимость включены резы плиткорезом, фуговка)
+             </td>
+         </tr>
+         <tr>
+             <td class="td">
+                 Укладка плитки в кухнях, коридорах,санузлах
+                 <br>
+                 (прямоугольная, либо квадратная, прямая укладка,
+                 <br>
+                 фриз отдельно), пол и стены
+             </td>
+             <td class="td">М2</td>
+             <td class="td">10</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Укладка простого одинарного фриза</td>
+             <td class="td">М.пог.</td>
+             <td class="td">1,5</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Укладка плитки на откосы</td>
+             <td class="td">М.пог</td>
+             <td class="td">9</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Зарезка угла 45 в керамической плитке</td>
+             <td class="td">М.пог</td>
+             <td class="td"><7/td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Зарезка угла 45 в плитке ГРЭС</td>
+             <td class="td">М.пог</td>
+             <td class="td">10</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Фуговка эпоксидной фугой</td>
+             <td class="td">М2</td>
+             <td class="td">2-6</td>
+             <td class="td">Плитка 50Х50 - 6 у.е, 600Х600 и более- 3 у.е</td>
+         </tr>
+         <tr>
+             <td class="td">
+                 Наклеивание декоративного покрытия типа - гибкий
+             <br>
+                камень, + покрытие акриловым лаком
+             </td>
+             <td class="td">М2</td>
+             <td class="td">5</td>
+             <td class="td">При покрытии алкидным лаком - 6 у.е.</td>
+         </tr>
+         <tr>
+             <td class="td">Укладка плитки на теплый пол</td>
+             <td class="td">М2</td>
+             <td class="td">12</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td" colspan="4">
+                 <span style="text-decoration: underline;" >
+                     <strong>Укладка полов</strong>
+                 </span>
+             </td>
+         </tr>
+         <tr>
+             <td class="td">Настил ламината по прямой</td>
+             <td class="td">М2</td>
+             <td class="td">2,5</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Настил ламината по диагонали</td>
+             <td class="td">М2</td>
+             <td class="td">4</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Укладка фанеры</td>
+             <td class="td">М2</td>
+             <td class="td">3</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Укладка линолеума</td>
+             <td class="td">М2</td>
+             <td class="td">3</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Ремонт ламината</td>
+             <td class="td">М2</td>
+             <td class="td">2</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td" colspan="4">
+                 <span style="text-decoration: underline;" >
+                     <strong>Отделочные работы</strong>
+                 </span>
+             </td>
+         </tr>
+         <tr>
+             <td class="td">
+                 Улучшенная подготовка под обои(шпатлевка стен в два слоя
+                 <br>
+                 с груновкой и зачисткой, визуальное выравнивание углов)
+             </td>
+             <td class="td">М2</td>
+             <td class="td">3,5</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Простая подготовка под обои. Однослойная шпатлевка
+             <br>
+                 без выравнивания углов
+             </td>
+             <td class="td">М2</td>
+             <td class="td">2,5</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Установка малярных уголков(на откосы оконные, стены)</td>
+             <td class="td">М</td>
+             <td class="td">1</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Штукатурка стен санузлов цементной штукатуркой по маякам</td>
+             <td class="td">М2</td>
+             <td class="td">5,5</td>
+             <td class="td">При толщине слоя до 20мм</td>
+         </tr>
+         <tr>
+             <td class="td">Штукатурка стен комнат гипсовой штукатуркой по маякам</td>
+             <td class="td">М2</td>
+             <td class="td">4,5</td>
+             <td class="td">При толщине слоя до 20мм</td>
+         </tr>
+         <tr>
+             <td class="td">Штукатурка дверных и оконных откосов шириной до 50см</td>
+             <td class="td">М.пог</td>
+             <td class="td">4</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Штукатурка дверных и оконных откосов шириной более 50см</td>
+             <td class="td">М.пог</td>
+             <td class="td">5</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Устройство стяжки</td>
+             <td class="td">М2</td>
+             <td class="td">7</td>
+             <td class="td">При толщине слоя 30-50мм</td>
+         </tr>
+         <tr>
+             <td class="td">Устройство стяжки по пенопласту</td>
+             <td class="td">М2</td>
+             <td class="td">7,5</td>
+             <td class="td">При толщине слоя 30-50мм</td>
+         </tr>
+         <tr>
+             <td class="td">Устройство тонкой выравнивающей стяжки из плиточного
+             <br>
+                 клея и стяжной смеси по бетонному основанию, толщина 5-30мм
+             </td>
+             <td class="td">М2</td>
+             <td class="td">5</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Монтаж потолка из ГКЛ, один уровень</td>
+             <td class="td">М2</td>
+             <td class="td">8</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Монтаж перегородок из ГКЛ, двойная обшивка</td>
+             <td class="td">М2</td>
+             <td class="td">14</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Установка пластиковых плинтусов</td>
+             <td class="td">М.пог</td>
+             <td class="td">1,5</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Подготовка под высококачественную окраску, + окраска
+             <br>
+                 валиками оштукатуренных либо обшитых ГКЛ стен и потолков
+             </td>
+             <td class="td">М2</td>
+             <td class="td">9</td>
+             <td class="td"></td>
+         </tr>
+         <tr>
+             <td class="td">Оклеивание обоями виниловыми, на флизелине, ширина 1м</td>
+             <td class="td">М2</td>
+             <td class="td">2,5</td>
+             <td class="td"></td>
+         </tr>
+
+
+     </table>
+     <div class="price_h">
+         <h3>Цены на услуги, не указанные в данной таблице, вы можете уточнить по телефонам или оставить заявку на сайте!</h3>
+     </div>
+ </div>
+{% endblock %}

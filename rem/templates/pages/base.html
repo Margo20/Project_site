@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <title>{% block title %}Мой сайт{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header class="header_first ">
+        <div class="wrapper">
+            <div class="header_wrapper">
+                <img src="{% static 'img/logo1.png' %}" alt="" class="logo-img">
+                                <h3 >Pемонт ГАРАНТ</h3>
+
+                <ul class="ul_logo">
+                    <li class="header__item"> <h3>Время работы: </h3><h3>09.00 - 21.00 без выходных</h3> </li>
+                    <li class="header__item"> <h3>+375 (29) 173-59-48</h3><h3> +375 (29) 173-59-48</h3></li>
+                    <li class="header__item"> <h3>strdek@mail.ru</h3><a href="#/" class="header__link_s"><h3>Мы в соц.сетях</h3></a></li>
+                </ul>
+                <ul ><h3>Добро пожаловать</h3>  {% if user.is_authenticated %} <h3>{{ request.user}} !</h3>
+                {% endif %}
+                </ul>
+                <ul>
+                    <div class="cart ul_logo">
+                        {% with total_items=cart|length %}
+                            {% if cart|length > 0 %}
+                                Ваша корзина:
+                                <a href="{% url 'cart:cart_detail' %}">
+                                    {{ total_items }} заказ (а),
+                                    ${{ cart.get_total_price }}
+                                </a>
+                            {% else %}
+                                Ваша корзина пуста.
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="header">
+            <div class="wrapper">
+                <div class="header_wrapper_nav">
+                    <nav>
+                        <ul class="header__list">
+                            <li class="li-header"><a href="{% url 'rem:rem' %}" class="header__link"> ГЛАВНАЯ</a></li>
+                            <li class="li-header"><a href="{% url 'rem:services' %}" class="header__link"> НАШИ УСЛУГИ </a></li>
+                            <li class="li-header"><a href="{% url 'rem:price' %}" class="header__link">НАШИ ЦЕНЫ </a></li>
+                            <li class="li-header"><a href="{% url 'rem:our_work_html' %}" class="header__link">НАШИ РАБОТЫ-html</a></li>
+                            <li class="li-header"><a href="{% url 'rem:product_list' %}" class="header__link">НАШИ РАБОТЫ-БД</a></li>
+                            <li class="li-header"><a href="{% url 'rem:contacts' %}" class="header__link"> КОНТАКТЫ </a></li>
+                            <li class="li-header"><a href="{% url 'rem:reviews' %}" class="header__link">ПОЧЕМУ МЫ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <!--Header end-->
+
+     {% block content %}
+    <div class="contact_page_answer">
+        <div class="wrapper_contacts_answer">
+            <strong style="color:{{ color }}"> {{ success }} </strong>
+            <strong style="color:{{ color }}"> {{error}}</strong>
+        </div>
+    </div>
+    {% endblock %}
+<!--Footer start-->
+<footer class="footer">
+    <div class="wrapper">
+        <div class="footer_form">
+            <div class="footer_form_text">
+                <h2>Позвольте себе ремонт, при котором выполняются работы в срок, берегутся нервы и улучшается интерьер</h2><br>
+                <br>
+                <h3> Профессиональная команда поможет в решении всех вопросов по ремонту и отделке </h3><br>
+                <br>
+            </div>
+            <form action="{% url 'rem:footersend' %}" method="post" >
+                {%csrf_token%}
+                <ul class="ul-form-footer">
+                    <li class="li-form-footer"> <input type="text" name="name" placeholder="Ваше имя" class="footer_f" autocorrect=off autocapitalize="words"></li>
+                     <li class="li-form-footer"><input type="tel" name="phone"  placeholder="+375-99-999-99-99" required class="footer_f"
+                               pattern="[\+][375]{3}-[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}"  minlength="11" maxlength="18" ></li>
+                    <li class="li-form-footer"><input type="email" name="email" placeholder="Email" class="footer_f" style="word-wrap:break-word"></li>
+                    <li class="li-form-footer"><input type="submit" value="Отправить заявку" class="btn"></li>
+                </ul>
+            </form>
+        </div>
+        <div class="footer__wrapper">
+            <div class="footer_line"></div>
+<!--            <hr color = red />-->
+            <div class="footer_nav">
+                <ul class="footer__list">
+                    <li class="footer_li" ><h4>ИП Мартиросян Г.А.</h4><h4>УНП 193377743</h4><a href="#/" class="header__link"><h4>Мы в соц.сетях</h4></a></li>
+                    <li class="footer_li"><h4>+375 (29) 173-59-48</h4><h4>+375 (29) 173-59-48</h4><h4>strdek@mail.ru</h4> </li>
+                    <li class="footer_li"><h4><a href="{% url 'rem:rem' %}" class="header__link"> ГЛАВНАЯ</a></h4></li>
+                    <li class="footer_li"><h4><a href="{% url 'rem:price' %}" class="header__link">НАШИ ЦЕНЫ </a></h4></li>
+                     <li class="li-header"><a href="{% url 'rem:our_work_html' %}" class="header__link">НАШИ РАБОТЫ-html</a></li>
+                    <li class="li-header"><a href="{% url 'rem:product_list' %}" class="header__link">НАШИ РАБОТЫ-БД</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--Footer end-->
+</body>
+</html>
+

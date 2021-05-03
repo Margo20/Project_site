@@ -1,0 +1,36 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block content %}
+<section class="wrapper">
+    <div class="order">
+        <div class="order-inner">
+            <div class="order-form">
+                <h2 class="order_text-center">Оставьте заявку на бесплатный расчет стоимости ремонта</h2>
+                <form action="{% url 'rem:euro_rem' %}" method="post">
+                    {%csrf_token%}
+					<div class="form-text">
+                            <input type="text" name="name" placeholder="Ваше имя" class="input-order" autofocus autocorrect=off autocapitalize=words>
+					</div>
+					<div class="form-text">
+                            <input type="tel" name="phone" placeholder="+375-99-999-99-99" required class="input-order"
+                           pattern="[\+][375]{3}-[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}"  minlength="11" maxlength="18" >
+					</div>
+					<div class="form-text">
+                            <input type="text" name="description" placeholder="Евроремонт" class="input-order" autocorrect=off autocapitalize=words>
+
+					</div>
+					<div class="form-text">
+                            <p class="submit-button"><button class="button" type="submit">Жду звонка </button></p>
+
+                    </div>
+                    <hr>
+                    {{message}}
+
+                </form>
+                </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

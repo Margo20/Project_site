@@ -1,0 +1,53 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}
+    Your shopping cart
+{% endblock %}
+{% block content %}
+    <h1>Ваша корзина</h1>
+    <table border="1px" cellpadding="10px" class="cart">
+        <thead>
+        <tr>
+            <th >Изображение</th>
+            <th>Виды работы</th>
+            <th>Количество</th>
+            <th>Удалить</th>
+            <th>Цена за единицу</th>
+            <th>Итого стоимость</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+            {% with ourwork=item.ourwork %}
+                <tr>
+                    <td>
+                        <a href="{{ ourwork.get_absolute_url }}">
+                            <img width="150px"  src="
+                                {% if ourwork.image %}
+                                    {{ ourwork.image.url }}
+                                {% else %}
+                                    {% static 'img/no_image.png' %}
+                                {% endif %}">
+                        </a>
+                    </td>
+                    <td>{{ ourwork.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><a href="{% url 'cart:cart_remove' ourwork.id%}">Удалить</a></td>
+                    <td class="num">${{ item.price }}</td>
+                    <td class="num">${{ item.total_price }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+        <tr class="total">
+            <td>Total</td>
+            <td colspan="4"></td>
+            <td class="num">${{ cart.get_total_price }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url 'rem:product_list' %}" class="button light">Вернуться к примерам работ</a>
+        <a href="#" class="button">Проверить</a>
+    </p>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}
+    {% if repair %}{{ repair.name }}{% else %}Примеры наших работ{% endif %}
+{% endblock %}
+ {% block content %}
+
+<section class="wrapper">
+    <div >
+       <h2 class="our_work-title text-center our_work_title_underline">
+        Примеры выполненных нами работ
+        </h2>
+    </div>
+        <ul>
+            <li {% if not repair %}class="selected"{% endif %}>
+               <h3 class="ah text-center our_work_title_underline"> <a href="{% url 'rem:ourwork_list' %}"> Все </a></h3>
+            </li>
+            {% for c in repairs %}
+                <li {% if repair.slug == c.slug %}class="selected"{% endif %}>
+                   <h3 class="ah text-center our_work_title_underline"> <a href="{{ c.get_absolute_url }}">{{ c.name }}</a></h3>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+            <div class="pag_str">
+                {% if page.has_previous %}
+                <a href="?page={{ page.previous_page_number }}">&lt;</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                {% endif %}
+                Страница № {{ page.number }} из {{ page.paginator.num_pages }}
+                {% if page.has_next %}
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="?page={{ page.next_page_number }}">&gt</a>
+                {% endif %}
+            </div>
+    <h2 class="repair_h text-center">{% if repair %}{{ repair.name }}{% else %}{% endif %}</h2>
+            {% for ourwork in ourworks %}
+    <div class="container_our_works">
+            <div class="our_work__list_bd">
+                <div class="wrap_our_work_bd">
+                    <a href="{{ ourwork.get_absolute_url }}">
+                        <img src="{% if ourwork.image %}{{ ourwork.image.url }}
+                        {% else %}{% static 'img/no_image_rem.png' %}{% endif %}" alt="Фото ремонта" class="our_work_img_bd">
+                    </a>
+                   <h3 ah ><a href="{{ ourwork.get_absolute_url }}">{{ ourwork.name }}</a></h3>
+                ${{ ourwork.price }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</section>
+{% endblock %}

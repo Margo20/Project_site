@@ -1,0 +1,42 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}
+{% endblock %}
+{% block content %}
+<section class="wrapper">
+    <div class="main_page">
+        <div class="wrapper_log_reg">
+            <div class="log_reg" >
+                {% if user.is_authenticated %}
+                <a href="{% url 'rem:logout' %}" class="log_reg_inner">Выход</a>
+                <a href="{% url 'rem:change_password' %}" class="log_reg_inner">Сменить пароль</a>
+                {% else %}
+                <a href="{% url 'rem:login' %}" class="log_reg_inner">Вход</a>
+                <a href="{% url 'rem:register' %}" class="log_reg_inner">Регистрация</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="main_inner">
+            <strong class="main_title">РЕМОНТ И ОТДЕЛКА КВАРТИР</strong>
+            <strong class="main_title">"ПОД КЛЮЧ"</strong>
+            <p class="main-underline"></p>
+            <h3 class="main_h ">ОТ ЭКОНОМ ДО ПРЕМИУМ КЛАССА</h3>
+            <p class="main-underline"></p>
+            <h3 class="main_h">БЕЗ ПОСРЕДНИКОВ. ГАРАНТИЯ 5 ЛЕТ</h3>
+            <p class="main-underline"></p>
+            <h3 class="main_h">Индивидуальная скидка каждому 15% при заказе комплексного ремонта</h3>
+            <p class="main-underline"></p>
+            <h4 class="main_h ">Заполните данные и станьте участником акции</h4>
+            <div class="main_form ">
+                 <form action="{% url 'rem:discount' %}" method="post" >
+                    {%csrf_token%}
+                    <input type="tel" name="phone" placeholder="+375-99-999-99-99" required class="main_input"
+                           pattern="[\+][375]{3}-[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}" minlength="11" maxlength="18" autofocus>
+                    <input type="submit" name="btn" value="ПОЛУЧИТЬ СКИДКУ 15%" class="main_input">
+                     {{message}}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

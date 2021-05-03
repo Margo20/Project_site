@@ -1,0 +1,80 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% block title %}
+    Наши услуги
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <div >
+        <h2 class="h2-title text-center title-underline">
+            Наши услуги
+        </h2><br>
+        <br>
+        <p class="subtitle text-center">
+           Вы можете обращаться к нам как по комплексному ремонту, так и по выполнению отдельных видов работ.
+            <br>
+            Задавайте абсолютно любой вопрос, связанный с ремонтом и Вы получите грамотный ответ наших специалистов.
+            <br>
+            Достаточно заполнить заявку на "Расчет стоимости", указав нужные Вам работы, а мы свяжемся с Вами для
+            уточнения деталей и сделаем примерный просчет стоимости работ (смету).
+            <br>
+            Либо Вы просто звоните нам по телефону +375 (29) 655-67-96 и получите консультацию.
+            <br>
+            Ниже приведена условная стоимость работ в пересчете за 1 кв.м. ремонтируемого помещения.
+        </p>
+    </div>
+    <div class="container_services">
+            <ul class="services__list">
+                <li class="wrap_services">
+                    <div class="h3_title"> <h3 > Косметический ремонт </h3></div>
+                    <div class="price_services"> <h3 > от 45 $ за кв.м. </h3></div>
+                    <ul>
+                        <li class="services">Демонтаж старой отделки</li>
+                        <li class="services">Очистка и грунтовка всех поверхностей</li>
+                        <li class="services">Оклеивание стен обоями</li>
+                        <li class="services">Замена напольного покрытия (линолеум, ковролин, ламинат)</li>
+                        <li class="services">Монтаж напольного плинтуса и порожков</li>
+                        <li class="services">Покраска труб отопления</li>
+                        <li class="services">Шпатлевка стен и потолков</li>
+                        <li class="services">Покраска стен, потолков</li>
+                        <li class="services">Уборка, вынос мусора</li>
+                        <li><a href="{% url 'rem:order_calculation' %}" class="btn_services">Заказать расчет стоимости</a></li>
+                    </ul>
+                </li>
+                 <li class="wrap_services">
+                <div class="h3_title"> <h3> Капитальный ремонт </h3></div>
+                    <div class="price_services"> <h3 > от 80 $ за кв.м. </h3></div>
+                    <ul>
+                        <li class="services">Демонтажные работы</li>
+                        <li class="services">Очистка и грунтовка всех поверхностей</li>
+                        <li class="services">Возведение стен и перегородок</li>
+                        <li class="services">Выравнивание пола и стен по маякам</li>
+                        <li class="services">Малярные работы</li>
+                        <li class="services">Укладка плитки</li>
+                        <li class="services">Укладка напольного покрытия</li>
+                        <li class="services">Окраска стен, либо оклеивание стен обоями</li>
+                        <li class="services"> Установка дверей, монтаж плинтусов и порожков</li>
+                        <li class="services">Уборка, вынос мусора</li>
+                        <li><a href="{% url 'rem:kap_rem' %}" class="btn_services">Заказать расчет стоимости</a></li>
+                    </ul>
+                </li>
+                 <li class="wrap_services">
+                <div class="h3_title"> <h3> Евроремонт </h3></div>
+                    <div class="price_services"> <h3 > от 110 $ за кв.м. </h3></div>
+                    <ul>
+                        <li class="services">Весь комплекс услуг "Капитальный ремонт"</li>
+                        <li class="services">Работа по дизайн-проекту</li>
+                        <li class="services">Монтаж многоуровневого гипсокартонного потолка</li>
+                        <li class="services">Укладка плитки нестандартных размеров, в том числе мозаики</li>
+                        <li class="services">Декоративная штукатурка, обои от ведущих европейских компаний</li>
+                        <li class="services">Укладка штучного паркета либо ламината по диагонали</li>
+                        <li class="services">Монтаж различных элементов декора</li>
+                        <li class="services">Использование эксклюзивных материалов</li>
+                        <li class="services">Уборка, вынос мусора</li>
+                        <li><a href="{% url 'rem:euro_rem' %}" class="btn_services">Заказать расчет стоимости</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </div>
+</div>
+{% endblock %}
